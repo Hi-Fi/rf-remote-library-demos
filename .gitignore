@@ -1,3 +1,6 @@
 __pycache__
 *.html
-*.xml
+output.xml
+report.html
+log.html
+**/target

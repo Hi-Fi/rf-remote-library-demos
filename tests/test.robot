@@ -1,5 +1,6 @@
 *** Settings ***
-Library    Remote    http://127.0.0.1:8270       WITH NAME    RemoteLibraryDemo
+# slash at the end of remote URL is important for Java libraries (https://github.com/ombre42/jrobotremoteserver/issues/25)
+Library    Remote    http://127.0.0.1:8270/       WITH NAME    RemoteLibraryDemo
 Library    OperatingSystem
 
 *** Test Cases ***

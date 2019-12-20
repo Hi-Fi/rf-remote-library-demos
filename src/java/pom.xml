@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.hi-fi</groupId>
+	<artifactId>robotframework-remote-server-example</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>robotframework-remote-server-example</name>
+	<description>Robot Framework's Java-based remote server example</description>
+	<url>https://github.com/hi-fi/rf-remote-library-demos</url>
+
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/Hi-Fi/rf-remote-library-demos/issues</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<url>https://github.com/hi-fi/rf-remote-library-demos</url>
+		<connection>scm:git:git://github.com/hi-fi/rf-remote-library-demos.git</connection>
+		<developerConnection>scm:git:git@github.com:hi-fi/rf-remote-library-demos.git</developerConnection>
+	</scm>
+
+	<developers>
+		<developer>
+			<name>Juho Saarinen</name>
+			<email>juho.saarinen@gmail.com</email>
+			<id>hi-fi</id>
+		</developer>
+	</developers>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<keywords.class>ExampleLibrary</keywords.class>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.robotframework</groupId>
+			<artifactId>javalib-core</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.ombre42</groupId>
+			<artifactId>jrobotremoteserver</artifactId>
+			<version>3.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>java</executable>
+					<arguments>
+						<argument>-classpath</argument>
+						<classpath/>
+						<argument>org.robotframework.remoteserver.RemoteServer</argument>
+						<argument>--library</argument>
+						<argument>ExampleLibrary:/</argument>
+						<argument>--port</argument>
+						<argument>8270</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
