@@ -14,7 +14,7 @@ Get Int
     ${value}    Return Int
 
 Get Image
-    ${image_data}    Return Image
+    ${image_data}    Return Image    image_from_remote.png
     Create Binary File    image_from_remote.png    ${image_data}
     Log    <img src="image_from_remote.png">    HTML
 
