@@ -1,12 +1,13 @@
-package com.github.hi_fi.examplelibrary.keywords; 
+package com.github.hi_fi.examplelibrary.keywords;
 
 import org.robotframework.javalib.annotation.ArgumentNames;
 import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import org.apache.commons.codec.binary.Hex;
 
 @RobotKeywords
 public class Keywords {
@@ -31,21 +32,20 @@ public class Keywords {
     @RobotKeyword
     @ArgumentNames({ "file_name" })
     public byte[] returnImage(String fileName) throws IOException {
-        File myFile = new File(fileName);
-        byte[] myByteArray = new byte[(int) myFile.length()];
-        FileInputStream fileInputStream = new FileInputStream(myFile);
-        fileInputStream.read(myByteArray);
-        fileInputStream.close();
-
+        byte[] myByteArray = Files.readAllBytes(new File(fileName).toPath());
         return myByteArray;
     }
 
     @RobotKeyword
     @ArgumentNames({ "file_name", "file_object"})
-    public void writeFile(String fileName, byte[] fileObject) throws IOException {
-        OutputStream out = new FileOutputStream(fileName);
-        out.write(fileObject);
-        out.close();
+    public void writeFile(String fileName, String fileData) throws IOException {
+        for (String element : fileData.split("x")) {
+            System.out.println(element);
+        }
+        //byte[] decodedString = fileData.getBytes(StandardCharsets.US_ASCII);
+        //OutputStream out = new FileOutputStream(fileName);
+        //out.write(fileData);
+        //out.close();
     }
 
     @RobotKeyword

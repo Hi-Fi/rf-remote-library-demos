@@ -4,3 +4,5 @@ output.xml
 report.html
 log.html
 **/target
+.classpath
+.vscode
