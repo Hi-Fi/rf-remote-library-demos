@@ -1,0 +1,16 @@
+version: "3"
+services:
+  db:
+    image: webdizz/oracle-xe-11g-sa:latest
+#    ports:
+#      - "15080:8080"
+#      - "1521:1521"
+    environment:
+      - processes=200
+      - DATABASES=sample
+    volumes:
+      - .oracle_data:/u01/app/oracle
+  library:
+    build: ./library
+    ports:
+        - "8270:8270"

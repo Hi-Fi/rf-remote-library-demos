@@ -6,3 +6,6 @@ log.html
 **/target
 .classpath
 .vscode
+.oracle_data
+.idea
+node_modules

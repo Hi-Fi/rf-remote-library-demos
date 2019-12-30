@@ -32,20 +32,15 @@ public class Keywords {
     @RobotKeyword
     @ArgumentNames({ "file_name" })
     public byte[] returnImage(String fileName) throws IOException {
-        byte[] myByteArray = Files.readAllBytes(new File(fileName).toPath());
-        return myByteArray;
+        return Files.readAllBytes(new File(fileName).toPath());
     }
 
     @RobotKeyword
     @ArgumentNames({ "file_name", "file_object"})
-    public void writeFile(String fileName, String fileData) throws IOException {
-        for (String element : fileData.split("x")) {
-            System.out.println(element);
-        }
-        //byte[] decodedString = fileData.getBytes(StandardCharsets.US_ASCII);
-        //OutputStream out = new FileOutputStream(fileName);
-        //out.write(fileData);
-        //out.close();
+    public void writeFile(String fileName, byte[] fileData) throws IOException {
+        OutputStream out = new FileOutputStream(fileName);
+        out.write(fileData);
+        out.close();
     }
 
     @RobotKeyword

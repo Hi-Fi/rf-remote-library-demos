@@ -52,5 +52,5 @@ lib.setStoredVariable = function (value) {
 
 // Run this keyword library if the library itself is called explicitly.
 if (!module.parent) {
-    var server = new robot.Server([lib], { host: 'localhost', port: 8270 });
+    var server = new robot.Server([lib], { host: 'localhost', port: 8271 });
 }
