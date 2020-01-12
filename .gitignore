@@ -9,3 +9,5 @@ log.html
 .oracle_data
 .idea
 node_modules
+*.exe
+*.iml
