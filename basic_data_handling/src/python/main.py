@@ -1,6 +1,9 @@
 import sys
+import os
+
 from robotremoteserver import RobotRemoteServer
 from keywords import RemoteDemoLibrary
 
 if __name__ == '__main__':
-    RobotRemoteServer(RemoteDemoLibrary(), host="0.0.0.0", *sys.argv[1:])
+    PORT = os.getenv('PORT', 8270)
+    RobotRemoteServer(RemoteDemoLibrary(), host="0.0.0.0", port=PORT, *sys.argv[1:])

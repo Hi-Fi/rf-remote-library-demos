@@ -1,0 +1,15 @@
+{
+  "name": "javascript-remote-server",
+  "version": "1.0.0",
+  "description": "Example remote server using Javascript",
+  "main": "examplelibrary.js",
+  "scripts": {
+    "start": "node examplelibrary.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juho Saarinen",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "robotremote": "github:Hi-Fi/node-robotremoteserver#keyword_types"
+  }
+}
