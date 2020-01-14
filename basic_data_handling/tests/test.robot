@@ -1,9 +1,10 @@
 *** Settings ***
 # slash at the end of remote URL is important for Java libraries (https://github.com/ombre42/jrobotremoteserver/issues/25)
-Library    Remote    http://127.0.0.1:${PORT}/       WITH NAME    RemoteLibraryDemo
+Library    Remote    ${SERVER}:${PORT}/       WITH NAME    RemoteLibraryDemo
 Library    OperatingSystem
 
 *** Variables ***
+${SERVER}  http://127.0.0.1
 ${PORT}    8270
 *** Test Cases ***
 Get String

@@ -70,10 +70,6 @@ Get Bounds Using XPath Query
     ${TARGET_X}                 Evaluate            ${X_OFFSET} + ${L_DECORATION_WIDTH}
     ${TARGET}                   Create Bounds       ${TARGET_X}   ${TARGET_Y}    600    300
     Bounds Should Be Equal      ${BOUNDS}           ${TARGET}
-Get Bounds Of Id That Does Not Exist
-    [Tags]              smoke    negative
-    ${MSG}              Run Keyword And Expect Error    *    Get Bounds    id=idThatDoesNotExist
-    Should Be Equal     ${MSG}    Given element "id=idThatDoesNotExist" was not found within given timeout of 1 SECONDS
 
 *** Keywords ***
 Setup all tests

@@ -11,3 +11,5 @@ log.html
 node_modules
 *.exe
 *.iml
+report
+uploaded_file.png

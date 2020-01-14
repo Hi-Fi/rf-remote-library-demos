@@ -1,0 +1,44 @@
+version: '3'
+services: 
+    golang_remote:
+        build: ./src/golang
+    java_remote:
+        build: ./src/java
+    javascript_remote:
+        build: ./src/javascript
+    python_remote:
+        build: ./src/python
+    golang_test:
+        depends_on: 
+          - golang_remote
+        image: rf_image
+        build: ./
+        volumes:
+          - ./:/run
+        command: --variable PORT:8270 --variable SERVER:golang_remote -d report/golang tests
+    java_test:
+        depends_on: 
+          - java_remote
+        image: rf_image
+        build: ./
+        volumes:
+          - ./:/run
+        command: --variable PORT:8270 --variable SERVER:java_remote -d report/java tests
+    javascript_test:
+        depends_on: 
+          - javascript_remote
+        image: rf_image
+        build: ./
+        volumes:
+          - ./:/run
+        command: --variable PORT:8270 --variable SERVER:javascript_remote -d report/javascript tests
+    python_test:
+        depends_on: 
+          - python_remote
+        image: rf_image
+        build: ./
+        volumes:
+          - ./:/run
+        command: --variable PORT:8270 --variable SERVER:python_remote -d report/python tests
+
+    

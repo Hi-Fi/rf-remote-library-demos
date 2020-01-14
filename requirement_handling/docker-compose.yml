@@ -11,6 +11,7 @@ services:
     volumes:
       - .oracle_data:/u01/app/oracle
   library:
+    image: requirement_handling_library
     build: ./library
     ports:
         - "8270:8270"
